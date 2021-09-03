@@ -33,8 +33,8 @@
 								<div class="form-group">
 									<div class="radio">
 										<label>O usuário é administrador?</label>
-										<label> <input type="radio" name="admin" checked="checked">Sim</label>
-										<label> <input type="radio" name="admin"> Não</label>
+										<label> <input type="radio" name="admin" checked="checked" value="true">Sim</label>
+										<label> <input type="radio" name="admin" value="false"> Não</label>
 									</div>
 								</div>
 							</c:if>

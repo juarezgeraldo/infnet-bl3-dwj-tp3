@@ -30,16 +30,10 @@
 					</div>
 
 					<div class="form-group">
-						<label>Valor base:</label>
-						<input  type="number" min="0.00" step="0.01" class="form-control"
-							value="0.00" name="valorBase">
-					</div>
-
-					<div class="form-group">
 						<div class="radio">
 							<label>Fabricação própria?:</label>
-							<label><input type="radio" name="proprio" checked="checked">Sim</label>
-							<label><input type="radio" name="proprio">Não</label>
+							<label><input type="radio" name="proprio" checked="checked" value="true">Sim</label>
+							<label><input type="radio" name="proprio" value="false">Não</label>
 						</div>
 					</div>
 
@@ -47,6 +41,12 @@
 						<label>Qtde itens:</label>
 						<input value="0" type="number" class="form-control"
 							placeholder="Entre com a quantidade de itens" name="quantidade">
+					</div>
+
+					<div class="form-group">
+						<label>Valor base:</label>
+						<input  type="number" min="0.00" step="0.01" class="form-control"
+							value="0.00" name="valorBase">
 					</div>
 
 					<div class="form-group">

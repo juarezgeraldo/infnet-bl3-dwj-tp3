@@ -42,7 +42,7 @@
 										<th>Dificuldade</th>
 										<th>Valor base</th>
 										<th>Usuário do cadastro</th>
-										<th></th>
+										<th>Ação</th>
 									</tr>
 								</thead>
 								<tbody>

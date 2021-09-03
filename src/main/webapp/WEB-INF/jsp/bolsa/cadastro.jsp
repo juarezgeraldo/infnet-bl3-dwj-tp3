@@ -32,8 +32,8 @@
 					<div class="form-group">
 						<div class="radio">
 							<label>Com fecho?:</label>
-							<label><input type="radio" name="comFecho" checked="checked">Sim</label>
-							<label><input type="radio" name="comFecho">Não</label>
+							<label><input type="radio" name="comFecho" checked="checked" value="true">Sim</label>
+							<label><input type="radio" name="comFecho" value="false">Não</label>
 						</div>
 					</div>
 

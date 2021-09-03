@@ -2,6 +2,7 @@
 	<%@page import="java.util.List" %>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 				<!DOCTYPE html>
 				<html>
 
@@ -35,22 +36,22 @@
 								<thead>
 									<tr>
 										<th>Id</th>
-										<th>Nome</th>
-										<th>Valor base</th>
-										<th>Fabricação própria</th>
 										<th>Tipo</th>
+										<th>Nome</th>
+										<th>Fabricação própria</th>
 										<th>Qtde itens</th>
+										<th>Valor base</th>
 										<th>Valor desconto</th>
 										<th>Usuário do cadastro</th>
-										<th></th>
+										<th>Ação</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="a" items="${lista}">
 										<tr>
 											<td>${a.id}</td>
+											<td style="text-align:center">${a.tipo}</td>
 											<td>${a.nome}</td>
-											<td style="text-align:right">${a.valorBase}</td>
 											<td style="text-align:center">
 												<c:choose>
 													<c:when test="${a.proprio}">
@@ -61,11 +62,10 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td style="text-align:center">${a.tipo}</td>
 											<td style="text-align:center">${a.quantidade}</td>
+											<td style="text-align:right">${a.valorBase}</td>
 											<td style="text-align:right">${a.desconto}</td>
 											<td style="text-align:center">${a.usuario.nome}</td>
-											<!-- <td><a href="/acessorio/${a.id}/editar">Editar</a></td> -->
 											<td><a href="/acessorio/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
