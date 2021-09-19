@@ -1,27 +1,48 @@
 package br.edu.infnet.appArtesanato.model.domain;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class Cliente {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String nome;
     private String email;
     private String telefone;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+    @OneToOne(cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @JoinColumn(name = "idEndereco")
+    private Endereco endereco;
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "cliente_id")
+    private List<Cliente> clienteList;
 
 
-    public Cliente(String nome, String email, String telefone) {
+
+    public Cliente(){
+
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public Cliente(String nome, String email, String telefone, Endereco endereco) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.nome);
-        sb.append(";");
-        sb.append(this.email);
-        sb.append(";");
-        sb.append(this.telefone);
-
-        return sb.toString();
+        this.endereco = endereco;
     }
 
     public String getNome() {
@@ -46,5 +67,29 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
     }
 }

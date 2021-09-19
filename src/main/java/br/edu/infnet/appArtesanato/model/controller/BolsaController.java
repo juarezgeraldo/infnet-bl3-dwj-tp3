@@ -33,29 +33,26 @@ public class BolsaController {
         new Bolsa(bolsa.getNome(), bolsa.getValorBase(), bolsa.isProprio());
         bolsa.setUsuario(usuario);
         bolsaService.incluir(bolsa);
-        String mensagem = "O acessório "+ bolsa.getNome() +" foi cadastrado com sucesso!!!";
+        String mensagem = "O acessório " + bolsa.getNome() + " foi cadastrado com sucesso!!!";
         model.addAttribute("msg", mensagem);
         return telaLista(model, usuario);
     }
 
     @GetMapping("/bolsa/{id}/excluir")
     public String excluir(Model model, @SessionAttribute("user") Usuario usuarioUser, @PathVariable Long id) {
-        bolsaService.excluir(id);
-        String mensagem = "O acessório "+ id +" foi excluído com sucesso!!!";
+        Bolsa bolsa = bolsaService.findById(id);
+        String mensagem = null;
+        String idMsg = null;
+        try {
+            bolsaService.excluir(id);
+            mensagem = "A bolsa " + bolsa.getNome() + " foi excluída com sucesso!!!";
+            idMsg = "sucesso";
+        } catch (Exception e) {
+            mensagem = "Não foi possível realizar a exclusão da bolsa " + bolsa.getNome() + ". Erro retornado: " + e.getMessage();
+            idMsg = "erro";
+        }
         model.addAttribute("msg", mensagem);
+        model.addAttribute("idMsg", idMsg);
         return telaLista(model, usuarioUser);
     }
-
-//    @GetMapping("/bolsa/{id}/editar")
-//    public String editar(Model model, Bolsa bolsa, @PathVariable Long id) {
-//        model.addAttribute("lista", bolsaService.editar(id));
-//        new Bolsa(bolsa.getNome(), bolsa.getValorBase(), bolsa.isProprio());
-//        bolsaService.editar(bolsa);
-//        String mensagem = "O acessório "+ bolsa.getNome() +" foi cadastrado com sucesso!!!";
-//        model.addAttribute("msg", mensagem);
-//        return telaLista(model);
-//        return "bolsa/cadastro";
-//    }
-
-
 }

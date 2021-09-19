@@ -30,29 +30,26 @@ public class AcessorioController {
         new Acessorio(acessorio.getNome(), acessorio.getValorBase(), acessorio.isProprio());
         acessorio.setUsuario(usuario);
         acessorioService.incluir(acessorio);
-        String mensagem = "O acessório "+ acessorio.getNome() +" foi cadastrado com sucesso!!!";
+        String mensagem = "O acessório " + acessorio.getNome() + " foi cadastrado com sucesso!!!";
         model.addAttribute("msg", mensagem);
         return telaLista(model, usuario);
     }
 
     @GetMapping("/acessorio/{id}/excluir")
     public String excluir(Model model, @SessionAttribute("user") Usuario usuarioUser, @PathVariable Long id) {
-        acessorioService.excluir(id);
-        String mensagem = "O acessório "+ id +" foi excluído com sucesso!!!";
+        Acessorio acessorio = acessorioService.findById(id);
+        String mensagem = null;
+        String idMsg = null;
+        try {
+            acessorioService.excluir(id);
+            mensagem = "O acessório " + acessorio.getNome() + " foi excluído com sucesso!!!";
+            idMsg = "sucesso";
+        } catch (Exception e) {
+            mensagem = "Não foi possível realizar a exclusão do acessório " + acessorio.getNome() + ". Erro retornado: " + e.getMessage();
+            idMsg = "erro";
+        }
         model.addAttribute("msg", mensagem);
+        model.addAttribute("idMsg", idMsg);
         return telaLista(model, usuarioUser);
     }
-
-//    @GetMapping("/acessorio/{id}/editar")
-//    public String editar(Model model, Acessorio acessorio, @PathVariable Long id) {
-//        model.addAttribute("lista", acessorioService.editar(id));
-//        new Acessorio(acessorio.getNome(), acessorio.getValorBase(), acessorio.isProprio());
-//        acessorioService.editar(acessorio);
-//        String mensagem = "O acessório "+ acessorio.getNome() +" foi cadastrado com sucesso!!!";
-//        model.addAttribute("msg", mensagem);
-//        return telaLista(model);
-//        return "acessorio/cadastro";
-//    }
-
-
 }

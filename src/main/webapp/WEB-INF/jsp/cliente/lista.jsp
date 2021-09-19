@@ -1,7 +1,8 @@
-<%@page import="br.edu.infnet.appArtesanato.model.domain.Bolsa" %>
+<%@page import="br.edu.infnet.appArtesanato.model.domain.Cliente" %>
 	<%@page import="java.util.List" %>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 				<!DOCTYPE html>
 				<html>
 
@@ -14,7 +15,7 @@
 
 					<div class="container">
 
-						<form action="/bolsa" method="GET">
+						<form action="/cliente" method="GET">
 							<button type="submit" class="btn btn-link">Incluir</button>
 						</form>
 
@@ -41,7 +42,7 @@
 								</c:if>
 							</c:if>
 
-							<h4>Quantidade de bolsas cadastradas: ${lista.size()}!!!</h4>
+							<h4>Quantidade de Clientes cadastrados: ${lista.size()}!!!</h4>
 
 							<hr>
 
@@ -50,12 +51,8 @@
 									<tr>
 										<th>Id</th>
 										<th>Nome</th>
-										<th>Fabricação própria</th>
-										<th>Material</th>
-										<th>Cor</th>
-										<th>Com fecho?</th>
-										<th>Dificuldade</th>
-										<th>Valor base</th>
+										<th>E-mail</th>
+										<th>Telefone</th>
 										<th>Usuário do cadastro</th>
 										<th>Ação</th>
 									</tr>
@@ -65,33 +62,10 @@
 										<tr>
 											<td>${a.id}</td>
 											<td>${a.nome}</td>
-											<td style="text-align:center">
-												<c:choose>
-													<c:when test="${a.proprio}">
-														<span>Sim</span>
-													</c:when>
-													<c:when test="${!a.proprio}">
-														<span>Não</span>
-													</c:when>
-												</c:choose>
-											</td>
-											<td style="text-align:center">${a.material}</td>
-											<td style="text-align:center">${a.cor}</td>
-											<td style="text-align:center">
-												<c:choose>
-													<c:when test="${a.comFecho}">
-														<span>Sim</span>
-													</c:when>
-													<c:when test="${!a.comFecho}">
-														<span>Não</span>
-													</c:when>
-												</c:choose>
-											</td>
-											<td style="text-align:right">${a.dificuldade}</td>
-											<td style="text-align:right">${a.valorBase}</td>
+											<td>${a.email}</td>
+											<td>${a.telefone}</td>
 											<td style="text-align:center">${a.usuario.nome}</td>
-											<!-- <td><a href="/bolsa/${a.id}/editar">Editar</a></td> -->
-											<td><a href="/bolsa/${a.id}/excluir">Excluir</a></td>
+											<td><a href="/cliente/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -99,7 +73,7 @@
 						</c:if>
 
 						<c:if test="${empty lista}">
-							<h4>Não há bolsas cadastradas!!!</h4>
+							<h4>Não há Clientes cadastrados!!!</h4>
 						</c:if>
 					</div>
 				</body>

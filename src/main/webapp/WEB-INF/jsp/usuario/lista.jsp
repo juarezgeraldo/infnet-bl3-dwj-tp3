@@ -74,7 +74,11 @@
 											<!-- <td><a href="/usuario/${a.id}/editar">Editar</a></td> -->
 											<td style="text-align:center">
 												<c:if test="${user.admin}">
-													<a href="/usuario/${a.id}/excluir">Excluir</a>
+													<c:choose>							
+														<c:when test = "${user.id != a.id}">
+															<a href="/usuario/${a.id}/excluir">Excluir</a>
+														</c:when>							
+													</c:choose>
 												</c:if>
 											</td>
 										</tr>

@@ -11,12 +11,20 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    @Column(unique = true, nullable = false)
     private String email;
+    @Column(nullable = false)
     private String senha;
     private boolean admin;
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "usuario_id")
     private List<Artesanato> artesanatoList;
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "usuario_id")
+    private List<Cliente> clienteList;
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+    @JoinColumn(name = "usuario_id")
+    private List<Encomenda> encomendaList;
 
     public Usuario(){
     }
@@ -85,5 +93,21 @@ public class Usuario implements Serializable {
 
     public void setArtesanatoList(List<Artesanato> artesanatoList) {
         this.artesanatoList = artesanatoList;
+    }
+
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
+    }
+
+    public List<Encomenda> getEncomendaList() {
+        return encomendaList;
+    }
+
+    public void setEncomendaList(List<Encomenda> encomendaList) {
+        this.encomendaList = encomendaList;
     }
 }

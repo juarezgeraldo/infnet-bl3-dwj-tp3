@@ -9,8 +9,8 @@
 			<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 			<div class="container">
-				<h2>Cadastro de Bolsas</h2>
-				<form action="/bolsa/incluir" method="POST">
+				<h2>Cadastro de Decoração</h2>
+				<form action="/decoracao/incluir" method="POST">
 
 					<div class="form-group">
 						<label>Nome:</label>
@@ -19,12 +19,11 @@
 					</div>
 
 					<div class="form-group">
-						<label>Material:</label>
-						<select class="form-control" name="material">
-							<option selected="selected">Couro</option>
-							<option>Linha</option>
-							<option>Tecido</option>
-							<option>Malha</option>
+						<label>Tipo:</label>
+						<select class="form-control" name="tipo">
+							<option selected="selected">Vaso</option>
+							<option>Quadro</option>
+							<option>Luminária</option>
 							<option>Outros</option>
 						</select>
 					</div>
@@ -38,22 +37,16 @@
 					</div>
 
 					<div class="form-group">
-						<label>Cor predominante:</label>
-						<input type="text" class="form-control" required
-							placeholder="Entre com a cor predominante" name="cor">
-					</div>
-
-					<div class="form-group">
-						<label>Grau de dificuldade:</label>
-						<input value="0" min="0" step="1" max="4" type="number" class="form-control" required
-							placeholder="Entre com o grau de dificuldade" name="dificuldade">
+						<label>Quantidade de peças:</label>
+						<input value="0" min="0" step="1" max="10" type="number" class="form-control" required
+							placeholder="Entre com a quantidade de peças da decoração" name="qtdPecasConjunto">
 					</div>
 
 					<div class="form-group">
 						<div class="radio">
-							<label>Com fecho?:</label>
-							<label><input type="radio" name="comFecho" checked="checked" value="true">Sim</label>
-							<label><input type="radio" name="comFecho" value="false">Não</label>
+							<label>É de vidro?:</label>
+							<label><input type="radio" name="vidro" checked="checked" value="true">Sim</label>
+							<label><input type="radio" name="vidro" value="false">Não</label>
 						</div>
 					</div>
 

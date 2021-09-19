@@ -1,20 +1,36 @@
 package br.edu.infnet.appArtesanato.model.domain;
 
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
+@Entity
+@Inheritance(strategy= InheritanceType.JOINED)
 public class Encomenda {
-    private LocalDateTime data;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private LocalDate data;
     private boolean feira;
     private String observacao;
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+    @ManyToMany(cascade = CascadeType.DETACH)
+    private List<Artesanato> artesanatoList;
 
     public Encomenda(){
-        this.data = LocalDateTime.now();
+        data = LocalDate.now();
     }
+//this.data = LocalDateTime.now();
 
-    public Encomenda(LocalDateTime data, boolean feira, String observacao) {
+    public Encomenda(LocalDate data, boolean feira, String observacao) {
         this.data = data;
         this.feira = feira;
         this.observacao = observacao;
@@ -42,11 +58,19 @@ public class Encomenda {
         return sb.toString();
     }
 
-    public LocalDateTime getData() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDate getData() {
         return data;
     }
 
-    public void setData(LocalDateTime data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
@@ -80,5 +104,13 @@ public class Encomenda {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public List<Artesanato> getArtesanatoList() {
+        return artesanatoList;
+    }
+
+    public void setArtesanatoList(List<Artesanato> artesanatoList) {
+        this.artesanatoList = artesanatoList;
     }
 }

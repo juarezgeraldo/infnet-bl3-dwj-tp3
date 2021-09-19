@@ -18,6 +18,10 @@ public class AcessorioService {
         return (List<Acessorio>) acessorioRepository.obterLista(usuario);
     }
 
+    public Acessorio findById(Long id){
+        return acessorioRepository.findById(id).orElse(null);
+    }
+
     public void incluir(Acessorio acessorio) {
         acessorioRepository.save(acessorio);
     }
@@ -26,7 +30,7 @@ public class AcessorioService {
         acessorioRepository.deleteById(id);
     }
 
-    public void editar(Acessorio acessorio) {
-        acessorioRepository.save(acessorio);
+    public List<Acessorio> findAll(){
+        return (List<Acessorio>) acessorioRepository.findAll();
     }
 }

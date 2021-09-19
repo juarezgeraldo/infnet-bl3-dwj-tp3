@@ -2,7 +2,7 @@ package br.edu.infnet.appArtesanato.model.tests;
 
 import br.edu.infnet.appArtesanato.model.domain.*;
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
-import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
+import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessoriosException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
 import org.springframework.core.io.ClassPathResource;
@@ -39,15 +39,15 @@ public class AppArtesanatoTest {
                             break;
 
                         case "E":
-                            Cliente cliente = new Cliente(campos[3], campos[4], campos[5]);
-
-                            Encomenda encomenda = new Encomenda();
-                            encomenda.setCliente(cliente);
-                            encomenda.setObservacao(campos[2]);
-                            encomenda.setFeira("feira".equalsIgnoreCase(campos[1]));
-                            encomenda.setUsuario(usuario);
-
-                            escrita.write(encomenda.obterEncomenda()+"\r\n");
+//                            Cliente cliente = new Cliente(campos[3], campos[4], campos[5]);
+//
+//                            Encomenda encomenda = new Encomenda();
+//                            encomenda.setCliente(cliente);
+//                            encomenda.setObservacao(campos[2]);
+//                            encomenda.setFeira("feira".equalsIgnoreCase(campos[1]));
+//                            encomenda.setUsuario(usuario);
+//
+//                            escrita.write(encomenda.obterEncomenda()+"\r\n");
                             break;
 
                         case "A":
@@ -89,7 +89,7 @@ public class AppArtesanatoTest {
                 escrita.close();
                 fileW.close();
 
-            } catch (IOException | QtdAcessorioZeradaOuNegativaException | QtdPecasConjuntoDecoracaoZeradaOuNegativaException | DificuldadeBolsaZeradaException | DivergenciaNosAcessorios e) {
+            } catch (IOException | QtdAcessorioZeradaOuNegativaException | QtdPecasConjuntoDecoracaoZeradaOuNegativaException | DificuldadeBolsaZeradaException | DivergenciaNosAcessoriosException e) {
                 System.out.println(e.getMessage());
             }
 

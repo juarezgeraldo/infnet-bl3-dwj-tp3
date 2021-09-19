@@ -10,7 +10,7 @@
 
 	<div class="container">
 		<h3>Sistema de encomendas para artesanato</h3>
-		<h4>TP3 da disciplina de Desenvolvimento Web com Java EE</h4>
+		<h4>AT da disciplina de Desenvolvimento Web com Java EE</h4>
 		<h4>Professor: Elberth Lins Costa de Moraes</h4>
 		<h4>Aluno: Juarez Geraldo da Silva Júnior</h4>
 

@@ -1,14 +1,12 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {
@@ -24,6 +22,10 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
+    public Usuario findById(Long id){
+        return usuarioRepository.findById(id).orElse(null);
+    }
+
     public void excluir(Long id) {
         usuarioRepository.deleteById(id);
     }
@@ -32,5 +34,11 @@ public class UsuarioService {
         return usuarioRepository.autenticacao(email, senha);
     }
 
+    public boolean verficaUsuarioExistente(Usuario usuario)  {
+        return usuarioRepository.existsByEmail(usuario.getEmail());
+    }
 
+    public List<Usuario> findAll(){
+        return (List<Usuario>) usuarioRepository.findAll();
+    }
 }

@@ -1,5 +1,6 @@
 package br.edu.infnet.appArtesanato.model.service;
 
+import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Artesanato;
 import br.edu.infnet.appArtesanato.model.repository.ArtesanatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class ArtesanatoService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<Artesanato> obterLista() {
-        return (List<Artesanato>) artesanatoRepository.findAll();
+    public List<Artesanato> obterLista(Long id) {
+        return (List<Artesanato>) artesanatoRepository.obterLista(id);
     }
 
     public void incluir(Artesanato artesanato) {
@@ -28,4 +29,13 @@ public class ArtesanatoService {
     public void excluir(Long id) {
         artesanatoRepository.deleteById(id);
     }
+
+    public Artesanato findById(Long id){
+        return artesanatoRepository.findById(id).orElse(null);
+    }
+
+    public List<Artesanato> findAll(){
+        return (List<Artesanato>) artesanatoRepository.findAll();
+    }
+
 }

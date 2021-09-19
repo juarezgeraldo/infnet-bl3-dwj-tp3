@@ -2,10 +2,17 @@ package br.edu.infnet.appArtesanato.model.domain;
 
 import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
 
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Decoracao extends Artesanato{
     private String tipo;
     private int qtdPecasConjunto;
     private boolean vidro;
+
+    public Decoracao(){}
 
     public Decoracao(String nome, float preco, boolean proprio) {
         super(nome, preco, proprio);

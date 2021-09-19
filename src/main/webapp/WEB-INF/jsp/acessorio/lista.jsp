@@ -23,9 +23,23 @@
 
 						<c:if test="${not empty lista}">
 							<c:if test="${not empty msg}">
-								<div class="alert alert-success">
-									<strong>Sucesso!</strong> ${msg}
-								</div>
+								<c:if test="${not empty idMsg}">
+									<c:if test="${idMsg == 'sucesso'}">
+										<div class="alert alert-success">
+											<strong>Sucesso!</strong> ${msg}
+										</div>
+									</c:if>
+									<c:if test="${idMsg == 'erro'}">
+										<div class="alert alert-danger">
+											<strong>ERRO!</strong> ${msg}
+										</div>
+									</c:if>
+								</c:if>
+								<c:if test="${empty idMsg}">
+									<div class="alert alert-success">
+										<strong>Sucesso!</strong> ${msg}
+									</div>
+								</c:if>
 							</c:if>
 
 							<h4>Quantidade de acessórios cadastrados: ${lista.size()}!!!</h4>

@@ -1,10 +1,9 @@
 package br.edu.infnet.appArtesanato.model.domain;
 
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
+import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessoriosException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdPecasConjuntoDecoracaoZeradaOuNegativaException;
-import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessorios;
-import br.edu.infnet.appArtesanato.model.repository.ArtesanatoRepository;
 
 import javax.persistence.*;
 import java.text.DecimalFormat;
@@ -22,9 +21,10 @@ public abstract class Artesanato {
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+    @ManyToMany(mappedBy = "artesanatoList")
+    private List<Encomenda> encomendaList;
 
     public Artesanato(){
-
     }
     public Artesanato(String nome, float valorBase, boolean proprio) {
         this.nome = nome;
@@ -32,7 +32,7 @@ public abstract class Artesanato {
         this.proprio = proprio;
     }
 
-    public String selecionarItemArtesanato() throws QtdAcessorioZeradaOuNegativaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, DificuldadeBolsaZeradaException, DivergenciaNosAcessorios {
+    public String selecionarItemArtesanato() throws QtdAcessorioZeradaOuNegativaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, DificuldadeBolsaZeradaException, DivergenciaNosAcessoriosException {
 
         DecimalFormat formato = new DecimalFormat("R$ #,##0.00");
 
@@ -47,7 +47,7 @@ public abstract class Artesanato {
         return sb.toString();
     }
 
-    public abstract float calcularValorFinal() throws DificuldadeBolsaZeradaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, QtdAcessorioZeradaOuNegativaException, DivergenciaNosAcessorios;
+    public abstract float calcularValorFinal() throws DificuldadeBolsaZeradaException, QtdPecasConjuntoDecoracaoZeradaOuNegativaException, QtdAcessorioZeradaOuNegativaException, DivergenciaNosAcessoriosException;
 
     @Override
     public String toString() {

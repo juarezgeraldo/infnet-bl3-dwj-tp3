@@ -1,7 +1,8 @@
-<%@page import="br.edu.infnet.appArtesanato.model.domain.Bolsa" %>
+<%@page import="br.edu.infnet.appArtesanato.model.domain.Encomenda" %>
 	<%@page import="java.util.List" %>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 				<!DOCTYPE html>
 				<html>
 
@@ -14,10 +15,9 @@
 
 					<div class="container">
 
-						<form action="/bolsa" method="GET">
+						<form action="/encomenda" method="GET">
 							<button type="submit" class="btn btn-link">Incluir</button>
 						</form>
-
 						<hr>
 
 						<c:if test="${not empty lista}">
@@ -41,7 +41,7 @@
 								</c:if>
 							</c:if>
 
-							<h4>Quantidade de bolsas cadastradas: ${lista.size()}!!!</h4>
+							<h4>Quantidade de Encomendas cadastrados: ${lista.size()}!!!</h4>
 
 							<hr>
 
@@ -49,14 +49,11 @@
 								<thead>
 									<tr>
 										<th>Id</th>
-										<th>Nome</th>
-										<th>Fabricação própria</th>
-										<th>Material</th>
-										<th>Cor</th>
-										<th>Com fecho?</th>
-										<th>Dificuldade</th>
-										<th>Valor base</th>
-										<th>Usuário do cadastro</th>
+										<th>Data</th>
+										<th>Cliente</th>
+										<th>Encomenda da Feira?</th>
+										<th>Quantidade Itens</th>
+										<th>Observação</th>
 										<th>Ação</th>
 									</tr>
 								</thead>
@@ -64,34 +61,22 @@
 									<c:forEach var="a" items="${lista}">
 										<tr>
 											<td>${a.id}</td>
-											<td>${a.nome}</td>
+											<td>${a.data}</td>
+											<td>${a.cliente.nome}</td>
 											<td style="text-align:center">
 												<c:choose>
-													<c:when test="${a.proprio}">
+													<c:when test="${a.feira}">
 														<span>Sim</span>
 													</c:when>
-													<c:when test="${!a.proprio}">
+													<c:when test="${!a.feira}">
 														<span>Não</span>
 													</c:when>
 												</c:choose>
 											</td>
-											<td style="text-align:center">${a.material}</td>
-											<td style="text-align:center">${a.cor}</td>
-											<td style="text-align:center">
-												<c:choose>
-													<c:when test="${a.comFecho}">
-														<span>Sim</span>
-													</c:when>
-													<c:when test="${!a.comFecho}">
-														<span>Não</span>
-													</c:when>
-												</c:choose>
-											</td>
-											<td style="text-align:right">${a.dificuldade}</td>
-											<td style="text-align:right">${a.valorBase}</td>
+											<td>${a.artesanatoList.size()}</td>
+											<td>${a.observacao}</td>
 											<td style="text-align:center">${a.usuario.nome}</td>
-											<!-- <td><a href="/bolsa/${a.id}/editar">Editar</a></td> -->
-											<td><a href="/bolsa/${a.id}/excluir">Excluir</a></td>
+											<td><a href="/encomenda/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -99,7 +84,7 @@
 						</c:if>
 
 						<c:if test="${empty lista}">
-							<h4>Não há bolsas cadastradas!!!</h4>
+							<h4>Não há Encomendas cadastradas!!!</h4>
 						</c:if>
 					</div>
 				</body>

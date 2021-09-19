@@ -8,7 +8,7 @@
 		</head>
 
 		<body>
-			<img src="logo.png"/>
+			<!-- <img src="logo.png"/> -->
 			<!-- <c:url value="/logo.png"></c:url> -->
 			<h1>Sistema de artesanato</h1>
 			<h5>Trabalho da disciplia de Java do Instituto Infnet</h5>

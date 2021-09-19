@@ -25,7 +25,7 @@
 
 					<div class="form-group">
 						<label>Nome:</label>
-						<input type="text" class="form-control"
+						<input type="text" class="form-control" required
 							placeholder="Entre com o nome do artesanato" name="nome">
 					</div>
 
@@ -38,20 +38,20 @@
 					</div>
 
 					<div class="form-group">
-						<label>Qtde itens:</label>
-						<input value="0" type="number" class="form-control"
+						<label>Qtde itens do conjunto:</label>
+						<input value="1" type="number" min="1" class="form-control" required
 							placeholder="Entre com a quantidade de itens" name="quantidade">
 					</div>
 
 					<div class="form-group">
 						<label>Valor base:</label>
-						<input  type="number" min="0.00" step="0.01" class="form-control"
+						<input  type="number" min="0.00" step="0.01" class="form-control" required
 							value="0.00" name="valorBase">
 					</div>
 
 					<div class="form-group">
 						<label>Valor Desconto:</label>
-						<input type="number" min="0.00" step="0.01" value="0.00" class="form-control"
+						<input type="number" min="0.00" step="0.01" value="0.00" class="form-control" required
 							placeholder="Entre com valor máximo do desconto" name="desconto">
 					</div>
 

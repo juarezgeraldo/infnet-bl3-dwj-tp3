@@ -11,4 +11,10 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
     @Query("from Usuario u where u.email = :email and u.senha = :senha")
     public Usuario autenticacao(String email, String senha);
+
+    boolean existsByEmail(String email);
+
+    @Query("from Usuario u where u.id = :id")
+    public Usuario findBy(Long id);
+
 }
