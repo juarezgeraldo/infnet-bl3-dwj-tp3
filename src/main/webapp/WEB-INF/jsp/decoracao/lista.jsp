@@ -13,6 +13,7 @@
 					<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 					<div class="container">
+						<h3>Decorações</h3>
 
 						<form action="/decoracao" method="GET">
 							<button type="submit" class="btn btn-link">Incluir</button>
@@ -48,23 +49,23 @@
 							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th>Id</th>
-										<th>Tipo</th>
-										<th>Nome</th>
-										<th>Fabricação própria</th>
-										<th>Qtd Peças</th>
-										<th>É de vidro?</th>
-										<th>Valor base</th>
-										<th>Usuário do cadastro</th>
-										<th>Ação</th>
+										<th style="text-align: center;">Id</th>
+										<th style="text-align: center;">Tipo</th>
+										<th style="text-align: center;">Nome</th>
+										<th style="text-align: center;">Fabricação própria</th>
+										<th style="text-align: center;">Qtd Peças</th>
+										<th style="text-align: center;">É de vidro?</th>
+										<th style="text-align: center;">Valor base</th>
+										<th style="text-align: center;">Usuário do cadastro</th>
+										<th style="text-align: center;">Ação</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="a" items="${lista}">
 										<tr>
-											<td>${a.id}</td>
-											<td style="text-align:center">${a.tipo}</td>
-											<td style="text-align:center">
+											<td style="text-align: center;">${a.id}</td>
+											<td style="text-align: center;">${a.tipo}</td>
+											<td style="text-align: center;">
 												<c:choose>
 													<c:when test="${a.proprio}">
 														<span>Sim</span>
@@ -74,9 +75,9 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td>${a.nome}</td>
-											<td style="text-align:center">${a.qtdPecasConjunto}</td>
-											<td style="text-align:center">
+											<td style="text-align: center;">${a.nome}</td>
+											<td style="text-align: center;">${a.qtdPecasConjunto}</td>
+											<td style="text-align: center;">
 												<c:choose>
 													<c:when test="${a.vidro}">
 														<span>Sim</span>
@@ -86,9 +87,9 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td style="text-align:right">${a.valorBase}</td>
-											<td style="text-align:center">${a.usuario.nome}</td>
-											<td><a href="/decoracao/${a.id}/excluir">Excluir</a></td>
+											<td style="text-align: center;">${a.valorBase}</td>
+											<td style="text-align: center;">${a.usuario.nome}</td>
+											<td style="text-align: center;"><a href="/decoracao/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>

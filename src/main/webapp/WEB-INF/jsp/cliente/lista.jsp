@@ -14,6 +14,7 @@
 					<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 					<div class="container">
+						<h3>Clientes</h3>
 
 						<form action="/cliente" method="GET">
 							<button type="submit" class="btn btn-link">Incluir</button>
@@ -49,23 +50,23 @@
 							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th>Id</th>
-										<th>Nome</th>
-										<th>E-mail</th>
-										<th>Telefone</th>
-										<th>Usuário do cadastro</th>
-										<th>Ação</th>
+										<th style="text-align: center;">Id</th>
+										<th style="text-align: center;">Nome</th>
+										<th style="text-align: center;">E-mail</th>
+										<th style="text-align: center;">Telefone</th>
+										<th style="text-align: center;">Usuário do cadastro</th>
+										<th style="text-align: center;">Ação</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="a" items="${lista}">
 										<tr>
-											<td>${a.id}</td>
-											<td>${a.nome}</td>
-											<td>${a.email}</td>
-											<td>${a.telefone}</td>
-											<td style="text-align:center">${a.usuario.nome}</td>
-											<td><a href="/cliente/${a.id}/excluir">Excluir</a></td>
+											<td style="text-align: center;">${a.id}</td>
+											<td style="text-align: center;">${a.nome}</td>
+											<td style="text-align: center;">${a.email}</td>
+											<td style="text-align: center;">${a.telefone}</td>
+											<td style="text-align: center;">>${a.usuario.nome}</td>
+											<td style="text-align: center;"><a href="/cliente/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>

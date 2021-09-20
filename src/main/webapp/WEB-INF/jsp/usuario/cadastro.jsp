@@ -82,18 +82,18 @@
 
 							<div class="form-group">
 								<label>Nome:</label>
-								<input type="text" class="form-control" value="${usuario.nome}" placeholder="Entre com o nome do usuário"
+								<input type="text" class="form-control" value="${usuario.nome}" required placeholder="Entre com o nome do usuário"
 									name="nome">
 							</div>
 
 							<div class="form-group">
 								<label>E-mail:</label>
-								<input type="email" class="form-control" value="${usuario.email}" name="email">
+								<input type="email" class="form-control" value="${usuario.email}" required name="email">
 							</div>
 
 							<div class="form-group">
 								<label>senha:</label>
-								<input type="password" class="form-control" value="${usuario.senha}" name="senha">
+								<input type="password" class="form-control" value="${usuario.senha}" required name="senha">
 							</div>
 
 							<button type="submit" class="btn btn-default">Cadastrar</button>

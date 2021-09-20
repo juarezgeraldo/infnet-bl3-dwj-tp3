@@ -1,4 +1,4 @@
-<%@page import="br.edu.infnet.appArtesanato.model.domain.Acessorio" %>
+<%@page import="br.edu.infnet.appArtesanato.model.domain.Artesanato" %>
 	<%@page import="java.util.List" %>
 		<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 			<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -14,13 +14,7 @@
 					<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 					<div class="container">
-						<h3>Acessórios</h3>
-
-						<form action="/acessorio" method="GET">
-							<button type="submit" class="btn btn-link">Incluir</button>
-						</form>
-
-						<hr>
+						<h3>Artesanatos</h3>
 
 						<c:if test="${not empty lista}">
 							<c:if test="${not empty msg}">
@@ -43,7 +37,7 @@
 								</c:if>
 							</c:if>
 
-							<h4>Quantidade de acessórios cadastrados: ${lista.size()}!!!</h4>
+							<h4>Quantidade de artesanatos cadastrados: ${lista.size()}!!!</h4>
 
 							<hr>
 
@@ -51,12 +45,9 @@
 								<thead>
 									<tr>
 										<th style="text-align: center;">Id</th>
-										<th style="text-align: center;">Tipo</th>
 										<th style="text-align: center;">Nome</th>
 										<th style="text-align: center;">Fabricação própria</th>
-										<th style="text-align: center;">Qtde itens</th>
 										<th style="text-align: center;">Valor base</th>
-										<th style="text-align: center;">Valor desconto</th>
 										<th style="text-align: center;">Usuário do cadastro</th>
 										<th style="text-align: center;">Ação</th>
 									</tr>
@@ -65,9 +56,8 @@
 									<c:forEach var="a" items="${lista}">
 										<tr>
 											<td style="text-align: center;">${a.id}</td>
-											<td style="text-align: center">${a.tipo}</td>
 											<td style="text-align: center;">${a.nome}</td>
-											<td style="text-align: center;">
+											<td  style="text-align: center;">
 												<c:choose>
 													<c:when test="${a.proprio}">
 														<span>Sim</span>
@@ -77,11 +67,9 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td style="text-align: center;">${a.quantidade}</td>
-											<td style="text-align: center;">${a.valorBase}</td>
-											<td style="text-align: center;">${a.desconto}</td>
-											<td style="text-align: center;">${a.usuario.nome}</td>
-											<td style="text-align: center;"><a href="/acessorio/${a.id}/excluir">Excluir</a></td>
+											<td  style="text-align: center;">${a.valorBase}</td>
+											<td  style="text-align: center;">${a.usuario.nome}</td>
+											<td  style="text-align: center;"><a href="/artesanato/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -89,7 +77,7 @@
 						</c:if>
 
 						<c:if test="${empty lista}">
-							<h4>Não há acessórios cadastrados!!!</h4>
+							<h4>Não há artesanatos cadastrados!!!</h4>
 						</c:if>
 					</div>
 				</body>

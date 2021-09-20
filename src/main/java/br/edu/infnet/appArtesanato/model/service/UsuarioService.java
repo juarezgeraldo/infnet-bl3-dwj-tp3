@@ -1,10 +1,12 @@
 package br.edu.infnet.appArtesanato.model.service;
 
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
+import br.edu.infnet.appArtesanato.model.dto.UsuarioDTO;
 import br.edu.infnet.appArtesanato.model.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,8 +16,24 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    public List<Usuario> obterLista() {
-        return (List<Usuario>) usuarioRepository.findAll();
+    public List<UsuarioDTO> obterLista() {
+        List<Usuario> usuarioList = (List<Usuario>) usuarioRepository.findAll();
+        List<UsuarioDTO> usuarioDTOList =  new ArrayList<>();
+
+        for (Usuario usuario : usuarioList) {
+
+            UsuarioDTO usuarioDTO = new UsuarioDTO();
+            usuarioDTO.setId(usuario.getId());
+            usuarioDTO.setNome(usuario.getNome());
+            usuarioDTO.setEmail(usuario.getEmail());
+            usuarioDTO.setAdmin(usuario.isAdmin());
+            usuarioDTO.setQtClientes(usuarioRepository.obterQtdClientes(usuario.getId()));
+            usuarioDTO.setQtEncomendas(usuarioRepository.obterQtdEncomendas(usuario.getId()));
+            usuarioDTO.setQtArtesanatos(usuarioRepository.obterQtdArtesanatos(usuario.getId()));
+            usuarioDTOList.add(usuarioDTO);
+
+        }
+        return usuarioDTOList;
     }
 
     public void incluir(Usuario usuario) {

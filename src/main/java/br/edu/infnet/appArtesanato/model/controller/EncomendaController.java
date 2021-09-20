@@ -1,6 +1,7 @@
 package br.edu.infnet.appArtesanato.model.controller;
 
 import br.edu.infnet.appArtesanato.model.domain.Artesanato;
+import br.edu.infnet.appArtesanato.model.domain.Cliente;
 import br.edu.infnet.appArtesanato.model.domain.Encomenda;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.service.ArtesanatoService;
@@ -33,7 +34,7 @@ public class EncomendaController {
     }
 
     @GetMapping("/encomenda/lista")
-    public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
+    public String telaLista(Model model, Encomenda encomenda, @SessionAttribute("user") Usuario usuario) {
         model.addAttribute("lista", encomendaService.obterLista(usuario));
         return "/encomenda/lista";
     }
@@ -47,9 +48,10 @@ public class EncomendaController {
         encomenda.setArtesanatoList(artesanatoList);
         encomenda.setUsuario(usuario);
         encomendaService.incluir(encomenda);
+        encomenda.setCliente(clienteService.findById(encomenda.getCliente().getId()));
         String mensagem = "A encomenda do cliente " + encomenda.getCliente().getNome() + " foi cadastrado com sucesso!!!";
         model.addAttribute("msg", mensagem);
-        return telaLista(model, usuario);
+        return telaLista(model, encomenda, usuario);
     }
 
     @GetMapping("/encomenda/{id}/excluir")
@@ -67,6 +69,6 @@ public class EncomendaController {
         }
         model.addAttribute("msg", mensagem);
         model.addAttribute("idMsg", idMsg);
-        return telaLista(model, usuarioUser);
+        return telaLista(model, encomenda, usuarioUser);
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface BolsaRepository extends CrudRepository<Bolsa, Long> {
-    @Query("from Bolsa a where a.usuario = :usuario")
+    @Query("from Bolsa a where a.usuario = :usuario order by a.nome")
     public List<Bolsa> obterLista(Usuario usuario);
 
 }

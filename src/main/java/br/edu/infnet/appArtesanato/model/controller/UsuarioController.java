@@ -1,6 +1,7 @@
 package br.edu.infnet.appArtesanato.model.controller;
 
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
+import br.edu.infnet.appArtesanato.model.dto.UsuarioDTO;
 import br.edu.infnet.appArtesanato.model.exceptions.UsuarioJaExisteException;
 import br.edu.infnet.appArtesanato.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,10 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 @Controller
 public class UsuarioController {
@@ -31,7 +36,8 @@ public class UsuarioController {
 
     @GetMapping("/usuario/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuarioUser, Usuario usuario) {
-        model.addAttribute("lista", usuarioService.obterLista());
+        List<UsuarioDTO> usuarioList = usuarioService.obterLista();
+        model.addAttribute("lista", usuarioList);
         model.addAttribute("user", usuarioUser);
         return "/usuario/lista";
     }

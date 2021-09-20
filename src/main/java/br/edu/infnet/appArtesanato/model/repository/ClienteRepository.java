@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ClienteRepository extends CrudRepository<Cliente, Long> {
 
-    @Query("from Cliente a where a.usuario.id = :id")
+    @Query("from Cliente a where a.usuario.id = :id order by a.nome")
     public List<Cliente> obterLista(Long id);
 
 }

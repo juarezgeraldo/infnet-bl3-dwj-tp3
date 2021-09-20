@@ -17,8 +17,8 @@
 							<td>
 								<form action="/cliente/cep" method="POST">
 									<div class="input-group mb-3">
-										<input type="text" class="form-control" placeholder="Informe o CEP"
-											aria-label="CEP" aria-describedby="basic-addon2" value="${enderecoCli.cep}"
+										<input type="text" class="form-control" placeholder="Informe o CEP" required minlength="8"
+											aria-label="CEP" aria-describedby="basic-addon2" value="${enderecoCli.cep}" maxlength="8"
 											name="cep">
 										<div class="input-group-append">
 											<button class="btn btn-outline-secondary" type="submit">Pesquisa
@@ -47,7 +47,7 @@
 										<label>Telefone:</label>
 										<input type="text" class="form-control" data-mask="(00) 0000-0000" data-mask-selectonfocus="true"
 											required value="${cliente.telefone}"
-											name="nome">
+											name="telefone">
 									</div>
 
 
@@ -111,3 +111,7 @@
 		</body>
 
 		</html>
+
+		$(document).ready(function(){
+			$('#telefone').mask('(00) 0000-0000#');
+		});

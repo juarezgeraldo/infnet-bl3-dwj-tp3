@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 //@SequenceGenerator(name = "idUsuarioCadastro")
-public class Usuario implements Serializable {
+public class Usuario implements Serializable, Comparable<Usuario> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +27,11 @@ public class Usuario implements Serializable {
     private List<Encomenda> encomendaList;
 
     public Usuario(){
+    }
+
+    @Override
+    public int compareTo(Usuario usuario) {
+        return this.getNome().compareTo(usuario.getNome());
     }
 
     public Usuario(String nome, String email, String senha, boolean admin) {

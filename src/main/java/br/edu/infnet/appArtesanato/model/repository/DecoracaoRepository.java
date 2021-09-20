@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface DecoracaoRepository extends CrudRepository<Decoracao, Long> {
-    @Query("from Decoracao a where a.usuario = :usuario")
+    @Query("from Decoracao a where a.usuario = :usuario order by a.nome")
     public List<Decoracao> obterLista(Usuario usuario);
 }

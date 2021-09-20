@@ -14,6 +14,7 @@
 					<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 					<div class="container">
+						<h3>Encomendas</h3>
 
 						<form action="/encomenda" method="GET">
 							<button type="submit" class="btn btn-link">Incluir</button>
@@ -48,21 +49,22 @@
 							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th>Id</th>
-										<th>Data</th>
-										<th>Cliente</th>
-										<th>Encomenda da Feira?</th>
-										<th>Quantidade Itens</th>
-										<th>Observação</th>
-										<th>Ação</th>
+										<th style="text-align: center;">Id</th>
+										<th style="text-align: center;">Data</th>
+										<th style="text-align: center;">Cliente</th>
+										<th style="text-align: center;">Encomenda da Feira?</th>
+										<th style="text-align: center;">Quantidade Itens</th>
+										<th style="text-align: center;">Usuário do cadastro</th>
+										<th style="text-align: center;">Observação</th>
+										<th style="text-align: center;">Ação</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach var="a" items="${lista}">
 										<tr>
-											<td>${a.id}</td>
-											<td>${a.data}</td>
-											<td>${a.cliente.nome}</td>
+											<td style="text-align: center;">${a.id}</td>
+											<td style="text-align: center;">${a.data}</td>
+											<td style="text-align: center;">${a.cliente.nome}</td>
 											<td style="text-align:center">
 												<c:choose>
 													<c:when test="${a.feira}">
@@ -73,10 +75,10 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<td>${a.artesanatoList.size()}</td>
-											<td>${a.observacao}</td>
-											<td style="text-align:center">${a.usuario.nome}</td>
-											<td><a href="/encomenda/${a.id}/excluir">Excluir</a></td>
+											<td style="text-align: center;">${a.artesanatoList.size()}</td>
+											<td style="text-align: center;">${a.observacao}</td>
+											<td style="text-align: center;">${a.usuario.nome}</td>
+											<td style="text-align: center;"><a href="/encomenda/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>
 								</tbody>

@@ -29,6 +29,12 @@
 							</a>
 						</li>
 						<li>
+							<a href="/artesanato/lista">
+								<span class="glyphicon glyphicon-lock"></span>
+								Artesanatos
+							</a>
+						</li>
+						<li>
 							<a href="/cliente/lista">
 								<span class="glyphicon glyphicon-lock"></span>
 								Cliente

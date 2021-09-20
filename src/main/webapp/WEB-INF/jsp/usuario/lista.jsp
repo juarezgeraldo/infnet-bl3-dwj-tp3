@@ -13,6 +13,7 @@
 					<c:import url="/WEB-INF/jsp/menu.jsp"></c:import>
 
 					<div class="container">
+						<h3>Usuários</h3>
 
 						<c:if test="${not empty user}">
 							<c:if test="${user.admin}">
@@ -43,12 +44,15 @@
 							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th>Id</th>
-										<th>Nome</th>
-										<th>E-mail</th>
-										<th>Administrador?</th>
-										<th>
-											<!-- <th></th> -->
+										<th style="text-align: center;">Id</th>
+										<th style="text-align: center;">Nome</th>
+										<th style="text-align: center;">E-mail</th>
+										<th style="text-align: center;">Clientes</th>
+										<th style="text-align: center;">Artesanatos</th>
+										<th style="text-align: center;">Encomendas</th>
+										<th style="text-align: center;">Administrador?</th>
+										<th style="text-align: center;">
+											<!-- <th style="text-align: center;"></th> -->
 											<c:if test="${user.admin}">
 												<span> Ação </span>
 											</c:if>
@@ -58,10 +62,13 @@
 								<tbody>
 									<c:forEach var="a" items="${lista}">
 										<tr>
-											<td>${a.id}</td>
-											<td>${a.nome}</td>
-											<td>${a.email}</td>
-											<td style="text-align:center">
+											<td style="text-align: center;">${a.id}</td>
+											<td style="text-align: center;">${a.nome}</td>
+											<td style="text-align: center;">${a.email}</td>
+											<td style="text-align: center;">${a.qtClientes}</td>
+											<td style="text-align: center;">${a.qtArtesanatos}</td>
+											<td style="text-align: center;">${a.qtEncomendas}</td>
+											<td style="text-align: center;">
 												<c:choose>
 													<c:when test="${a.admin}">
 														<span>Sim</span>
@@ -71,13 +78,13 @@
 													</c:when>
 												</c:choose>
 											</td>
-											<!-- <td><a href="/usuario/${a.id}/editar">Editar</a></td> -->
-											<td style="text-align:center">
+											<!-- <td style="text-align: center;"><a href="/usuario/${a.id}/editar">Editar</a></td> -->
+											<td style="text-align: center;">
 												<c:if test="${user.admin}">
-													<c:choose>							
-														<c:when test = "${user.id != a.id}">
+													<c:choose>
+														<c:when test="${user.id != a.id}">
 															<a href="/usuario/${a.id}/excluir">Excluir</a>
-														</c:when>							
+														</c:when>
 													</c:choose>
 												</c:if>
 											</td>

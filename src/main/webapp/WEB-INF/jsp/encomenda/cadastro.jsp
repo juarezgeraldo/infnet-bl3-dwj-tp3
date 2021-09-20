@@ -67,7 +67,7 @@
 
 					<div class="form-group">
 						<label>Observação:</label>
-						<input type="text" class="form-control" placeholder="Entre com o número do telefone"
+						<input type="text" class="form-control" placeholder="Entre com as observações"
 							value="${encomenda.observacao}" name="observacao">
 					</div>
 
