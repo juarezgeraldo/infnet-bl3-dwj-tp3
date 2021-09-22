@@ -13,4 +13,8 @@ import java.util.List;
 public interface EncomendaRepository extends CrudRepository<Encomenda, Long> {
     @Query("from Encomenda a where a.usuario.id = :id order by a.cliente.nome")
     public List<Encomenda> obterLista(Long id);
+
+    @Query("select count(e) from Encomenda e")
+    public Integer obterQtd();
+
 }

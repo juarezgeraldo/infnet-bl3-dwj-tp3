@@ -33,4 +33,9 @@ public class AcessorioService {
     public List<Acessorio> findAll(){
         return (List<Acessorio>) acessorioRepository.findAll();
     }
+
+    public Integer obterQtd(){
+        return acessorioRepository.obterQtd();
+    }
+
 }

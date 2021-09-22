@@ -34,4 +34,8 @@ public class DecoracaoService {
         return (List<Decoracao>) decoracaoRepository.findAll();
     }
 
+    public Integer obterQtd(){
+        return decoracaoRepository.obterQtd();
+    }
+
 }

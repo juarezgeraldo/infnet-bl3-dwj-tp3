@@ -13,4 +13,7 @@ public interface AcessorioRepository extends CrudRepository<Acessorio, Long> {
     @Query("from Acessorio a where a.usuario = :usuario order by a.nome")
     public List<Acessorio> obterLista(Usuario usuario);
 
+    @Query("select count(a) from Acessorio a")
+    public Integer obterQtd();
+
 }

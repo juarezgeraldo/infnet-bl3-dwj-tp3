@@ -38,4 +38,8 @@ public class ArtesanatoService {
         return (List<Artesanato>) artesanatoRepository.findAll();
     }
 
+    public Integer obterQtd(){
+        return artesanatoRepository.obterQtd();
+    }
+
 }

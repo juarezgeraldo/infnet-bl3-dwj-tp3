@@ -12,4 +12,8 @@ import java.util.List;
 public interface DecoracaoRepository extends CrudRepository<Decoracao, Long> {
     @Query("from Decoracao a where a.usuario = :usuario order by a.nome")
     public List<Decoracao> obterLista(Usuario usuario);
+
+    @Query("select count(d) from Decoracao d")
+    public Integer obterQtd();
+
 }

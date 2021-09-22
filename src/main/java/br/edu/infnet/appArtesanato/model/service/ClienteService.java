@@ -36,4 +36,9 @@ public class ClienteService {
     public List<Cliente> findAll(){
         return (List<Cliente>) clienteRepository.findAll();
     }
+
+    public Integer obterQtd(){
+        return clienteRepository.obterQtd();
+    }
+
 }

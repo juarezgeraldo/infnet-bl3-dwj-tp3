@@ -14,4 +14,7 @@ public interface BolsaRepository extends CrudRepository<Bolsa, Long> {
     @Query("from Bolsa a where a.usuario = :usuario order by a.nome")
     public List<Bolsa> obterLista(Usuario usuario);
 
+    @Query("select count(b) from Bolsa b")
+    public Integer obterQtd();
+
 }

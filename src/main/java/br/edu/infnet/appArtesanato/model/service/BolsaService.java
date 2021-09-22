@@ -33,4 +33,8 @@ public class BolsaService {
         return (List<Bolsa>) bolsaRepository.findAll();
     }
 
+    public Integer obterQtd(){
+        return bolsaRepository.obterQtd();
+    }
+
 }

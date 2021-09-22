@@ -59,4 +59,9 @@ public class UsuarioService {
     public List<Usuario> findAll(){
         return (List<Usuario>) usuarioRepository.findAll();
     }
+
+    public Integer obterQtd(){
+        return usuarioRepository.obterQtd();
+    }
+
 }

@@ -15,17 +15,18 @@
 				<br />
 				<br />
 				<br />
-				<h4>Estatística de registros no sistema:</h4>
-				<ul class="list-group">
-					<li class="list-group-item">Quantidade de Usuários <span class="badge">${qtUsuarios}</span></li>
-					<li class="list-group-item">Quantidade de Clientes <span class="badge">${qtClientes}</span></li>
-					<li class="list-group-item">Quantidade de Acessórios <span class="badge">${qtAcessorios}</span></li>
-					<li class="list-group-item">Quantidade de Bolsas <span class="badge">${qtBolsas}</span></li>
-					<li class="list-group-item">Quantidade de Decorações <span class="badge">${qtDecoracoes}</span></li>
-					<li class="list-group-item">Quantidade de itens de Artesanato <span
-							class="badge">${qtArtesanatos}</span></li>
-					<li class="list-group-item">Quantidade de Encomendas <span class="badge">${qtEncomendas}</span></li>
-				</ul>
+				<div class="form-group">
+					<div class="row ajusteRow">
+						<div class="col-md-5">
+							<h4>Estatística de registros no sistema:</h4>
+							<ul class="list-group">
+								<c:forEach items="${totalizacao}" var="totalizacao">
+									<li class="list-group-item">Quantidade de ${totalizacao.key}<span class="badge">${totalizacao.value}</span></li>
+								</c:forEach>
+							</ul>
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</body>

@@ -36,4 +36,9 @@ public class EncomendaService {
     public Encomenda findById(Long id) {
         return encomendaRepository.findById(id).orElse(null);
     }
+
+    public Integer obterQtd(){
+        return encomendaRepository.obterQtd();
+    }
+
 }
