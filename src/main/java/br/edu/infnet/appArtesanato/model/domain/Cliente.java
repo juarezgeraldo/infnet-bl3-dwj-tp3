@@ -21,7 +21,7 @@ public class Cliente {
     private Endereco endereco;
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
     @JoinColumn(name = "cliente_id")
-    private List<Cliente> clienteList;
+    private List<Encomenda> encomendaList;
 
 
 
@@ -85,11 +85,11 @@ public class Cliente {
         this.endereco = endereco;
     }
 
-    public List<Cliente> getClienteList() {
-        return clienteList;
+    public List<Encomenda> getEncomendaList() {
+        return encomendaList;
     }
 
-    public void setClienteList(List<Cliente> clienteList) {
-        this.clienteList = clienteList;
+    public void setEncomendaList(List<Encomenda> encomendaList) {
+        this.encomendaList = encomendaList;
     }
 }

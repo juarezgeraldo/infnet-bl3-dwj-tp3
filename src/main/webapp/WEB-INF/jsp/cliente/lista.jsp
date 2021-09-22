@@ -65,7 +65,7 @@
 											<td style="text-align: center;">${a.nome}</td>
 											<td style="text-align: center;">${a.email}</td>
 											<td style="text-align: center;">${a.telefone}</td>
-											<td style="text-align: center;">>${a.usuario.nome}</td>
+											<td style="text-align: center;">${a.usuario.nome}</td>
 											<td style="text-align: center;"><a href="/cliente/${a.id}/excluir">Excluir</a></td>
 										</tr>
 									</c:forEach>

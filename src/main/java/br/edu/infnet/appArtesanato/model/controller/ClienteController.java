@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+@SessionAttributes({"oper", "cliente", "endereco"})
 @Controller
 public class ClienteController {
 
@@ -19,26 +20,39 @@ public class ClienteController {
     @Autowired
     private EnderecoService enderecoService;
 
-    @PostMapping(value = "/cliente/cep")
-    public String obterCep(Model model, @SessionAttribute("user") Usuario usuario, @RequestParam String cep) {
-        model.addAttribute("enderecoCli", enderecoService.obterCep(cep));
-        return "/cliente/cadastro";
-    }
-
-
-    @GetMapping(value = "/cliente")
-    public String telaCadastro() {
-        return "/cliente/cadastro";
-    }
-
     @GetMapping("/cliente/lista")
     public String telaLista(Model model, @SessionAttribute("user") Usuario usuario) {
         model.addAttribute("lista", clienteService.obterLista(usuario));
         return "/cliente/lista";
     }
 
+    @GetMapping(value = "/cliente")
+    public String telaCadastro(Model model) {
+        Cliente cliente = new Cliente();
+        Endereco endereco = new Endereco();
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("endereco", endereco);
+        return "/cliente/cadastro";
+    }
+
+    @PostMapping(value = "/cliente/cep")
+    public String obterCep(Model model,
+                           @SessionAttribute("user") Usuario usuario,
+                           @SessionAttribute("cliente") Cliente cliente,
+                           @SessionAttribute("endereco") Endereco endereco,
+                           @RequestParam String cep) {
+        cliente.setEndereco(enderecoService.obterCep(cep));
+        model.addAttribute("endereco", endereco);
+        model.addAttribute("cliente", cliente);
+        model.addAttribute("user", usuario);
+        return "/cliente/cadastro";
+    }
+
     @PostMapping("/cliente/incluir")
-    public String incluir(Model model, Cliente cliente, Endereco endereco, @SessionAttribute("user") Usuario usuario) {
+    public String incluir(Model model,
+                          Cliente cliente,
+                          Endereco endereco,
+                          @SessionAttribute("user") Usuario usuario) {
         new Cliente(cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getEndereco());
         cliente.setUsuario(usuario);
         cliente.setEndereco(endereco);
