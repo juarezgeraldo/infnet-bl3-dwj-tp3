@@ -1,9 +1,5 @@
 package br.edu.infnet.appArtesanato.model.tests;
 
-import br.edu.infnet.appArtesanato.model.domain.Cliente;
-import br.edu.infnet.appArtesanato.model.domain.Encomenda;
-import br.edu.infnet.appArtesanato.model.domain.Usuario;
-
 public class EncomendaTest {
 	public static void main(String[] args) {
 

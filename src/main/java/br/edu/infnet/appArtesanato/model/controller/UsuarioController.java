@@ -2,18 +2,15 @@ package br.edu.infnet.appArtesanato.model.controller;
 
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.dto.UsuarioDTO;
-import br.edu.infnet.appArtesanato.model.exceptions.UsuarioJaExisteException;
 import br.edu.infnet.appArtesanato.model.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 @Controller

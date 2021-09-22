@@ -1,7 +1,5 @@
 package br.edu.infnet.appArtesanato.model.repository;
 
-import br.edu.infnet.appArtesanato.model.domain.Artesanato;
-import br.edu.infnet.appArtesanato.model.domain.Cliente;
 import br.edu.infnet.appArtesanato.model.domain.Encomenda;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

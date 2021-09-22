@@ -1,13 +1,5 @@
 package br.edu.infnet.appArtesanato.model.dto;
 
-import br.edu.infnet.appArtesanato.model.domain.Artesanato;
-import br.edu.infnet.appArtesanato.model.domain.Cliente;
-import br.edu.infnet.appArtesanato.model.domain.Encomenda;
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.List;
-
 public class UsuarioDTO {
     private Long id;
     private String nome;

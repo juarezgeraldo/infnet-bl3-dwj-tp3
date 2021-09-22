@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.repository;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Bolsa;
 import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import org.springframework.data.jpa.repository.Query;

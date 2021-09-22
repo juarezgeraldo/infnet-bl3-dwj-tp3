@@ -2,7 +2,6 @@ package br.edu.infnet.appArtesanato.model.domain;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 

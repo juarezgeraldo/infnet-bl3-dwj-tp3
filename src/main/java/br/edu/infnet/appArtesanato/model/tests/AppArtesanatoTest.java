@@ -1,6 +1,9 @@
 package br.edu.infnet.appArtesanato.model.tests;
 
-import br.edu.infnet.appArtesanato.model.domain.*;
+import br.edu.infnet.appArtesanato.model.domain.Acessorio;
+import br.edu.infnet.appArtesanato.model.domain.Bolsa;
+import br.edu.infnet.appArtesanato.model.domain.Decoracao;
+import br.edu.infnet.appArtesanato.model.domain.Usuario;
 import br.edu.infnet.appArtesanato.model.exceptions.DificuldadeBolsaZeradaException;
 import br.edu.infnet.appArtesanato.model.exceptions.DivergenciaNosAcessoriosException;
 import br.edu.infnet.appArtesanato.model.exceptions.QtdAcessorioZeradaOuNegativaException;

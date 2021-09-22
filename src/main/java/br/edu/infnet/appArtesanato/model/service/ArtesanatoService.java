@@ -1,6 +1,5 @@
 package br.edu.infnet.appArtesanato.model.service;
 
-import br.edu.infnet.appArtesanato.model.domain.Acessorio;
 import br.edu.infnet.appArtesanato.model.domain.Artesanato;
 import br.edu.infnet.appArtesanato.model.repository.ArtesanatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
